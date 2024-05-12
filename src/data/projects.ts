@@ -32,7 +32,7 @@ export const AllProjects = [
     description:
       "A Clone of the popular game Flappy Bird using LibGDX game engine",
     gitHubUrl: "https://github.com/Italord0/flappy-bird",
-    iconUrl:"https://private-user-images.githubusercontent.com/32901063/327613061-d081162d-eee5-4efb-aba2-64a3e955858e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTU1MDA1NTMsIm5iZiI6MTcxNTUwMDI1MywicGF0aCI6Ii8zMjkwMTA2My8zMjc2MTMwNjEtZDA4MTE2MmQtZWVlNS00ZWZiLWFiYTItNjRhM2U5NTU4NThlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTEyVDA3NTA1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM1ZThhMmJiM2Y2ZjkxNDNhNzAwNDAzZDBkMTFjYWFlNGIxZTZjNzc5NTNjMmRkNzY4ZDljNWNmYWZjNWRhZTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.h0E4BYtPwbg6PnVCz30LXQKQJVh2mnZCI5BFbscy998",
+    iconUrl:"https://github.com/Italord0/flappy-bird/assets/32901063/d081162d-eee5-4efb-aba2-64a3e955858e",
     platform: "Android"
   },
   {
