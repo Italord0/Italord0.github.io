@@ -2,7 +2,6 @@
     display: flex;
     margin-bottom: 5rem;
     align-items: flex-start;
-    align-items: center;
     flex-wrap: wrap;
     margin: 0 auto;
     overflow: hidden;
@@ -25,7 +24,6 @@
 }
 
 .contact-section {
-    
     width: 100%;
 }
 
@@ -38,21 +36,18 @@
 
 .container-location {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    gap:25px;
+    gap: 4rem;
 }
 
 .contact-flex {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-right: 3.5rem;
-
+    width: 25rem;
 }
 
 .container-location i {
     font-size: 3.5rem;
+    justify-content: center;
 }
 
 .contact-flex i {
@@ -71,13 +66,14 @@
 
 .contact-flex p {
     font-size: 1.7rem;
+    flex-direction: column;
+    justify-content: left;
 }
 
 .simbols {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:20px
+    width: 100%;
+    gap: 3rem;
 }
 
 .text {

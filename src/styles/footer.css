@@ -1,18 +1,24 @@
 .footer-container {
-    background-color: #2d2e32;
-    height: 10rem;
+    width: 100%;
+    background-color: #f0f0f0; /* Change to your desired background color */
+    padding: 20px 0; /* Adjust padding as needed */
+    text-align: center; /* Center align the content */
 }
 
 .footer-section {
-    font-size: 3rem;
-    font-weight: 700;
-    display: flex;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    overflow: hidden;
-    width: 100rem;
-    height: 10rem;
-    color: white;
+    max-width: 1200px; /* Adjust the maximum width of the footer content */
+    margin: 0 auto; /* Center the footer content */
+}
+
+.footer-section p {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .footer-section p{
+        padding: 0 20px; 
+        font-size: 1rem;
+    }
 }
