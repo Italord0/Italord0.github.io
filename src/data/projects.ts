@@ -4,7 +4,7 @@ export const AllProjects = [
     name: "What Is My IP?",
     description:
       "Simple Android App to display IP address using web-scrapping",
-    gitHubUrl: "https://github.com/pndspacas/boosted-ecommerce",
+    gitHubUrl: "https://github.com/Italord0/ipconfig",
     iconUrl: "https://play-lh.googleusercontent.com/zeRPV9NZGQSqqI4clP68oi2DDtwwViG4c-06JcKHuLETHET7PXO1fG3QfHfuGUSVUmIW=w240-h480-rw",
     prodUrl: "https://play.google.com/store/apps/details?id=com.italo.ipconfig&pcampaignid=web_share",
     platform: "Android"
