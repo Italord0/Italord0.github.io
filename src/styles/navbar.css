@@ -28,6 +28,18 @@ li {
     font-weight:600;
 }
 
+/* landscape */
+.nav-links li{
+    font-size: 2.5rem;
+}
+
+/* portrait */
+@media screen and (max-width: 768px) {
+    .nav-links li{
+        font-size: 1.8rem;
+    }
+}
+
 li:hover{
     color: red;
 }

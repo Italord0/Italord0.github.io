@@ -16,7 +16,6 @@ const Contact = () => {
             setCopySuccess('');
         }, 5000);
 
-
     };
 
     return (
@@ -33,7 +32,7 @@ const Contact = () => {
                                 <i className="fa-solid fa-map-location-dot"></i>
                                 <div className="text">
                                     <h5>Location</h5>
-                                    <p>Lisbon, Portugal</p>
+                                    <p>Recife, Brazil</p>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +41,7 @@ const Contact = () => {
                                 <i className="fa-solid fa-envelope-open-text"></i>
                                 <div className="text">
                                     <h5>Mail</h5>
-                                    <p onClick={() => copyToClipBoard("pndspacas@gmail.com")}>pndspacas@gmail.com</p>
+                                    <p onClick={() => copyToClipBoard("italord.melo@gmail.com")}>italord.melo@gmail.com</p>
                                 </div>
                                 {!show && <span>{copySuccess}</span>}
                             </div>
