@@ -1,13 +1,11 @@
-import "../styles/header.css";
-import swift from "../images/swift.svg";
-import kotlin from "../images/koltin.png";
-import java from "../images/java.svg";
-import react from "../images/react.png";
-import photo from "../images/me.png";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import "./index.css";
+import swift from "../../images/swift.svg";
+import kotlin from "../../images/koltin.png";
+import java from "../../images/java.svg";
+import react from "../../images/react.png";
+import photo from "../../images/me.png";
 const Header = () => {
   return (
-    <Router>
       <div className="main-container" id="home">
         <main>
           <section className="section-container">
@@ -16,18 +14,18 @@ const Header = () => {
               <div className="text-container">
                 <p>Hi! I'm a Mobile Developer based in Recife, Brazil.</p>
                 <div>
-                  <Link to="https://www.linkedin.com/in/italocmelo/">
-                    <i className="fa-brands fa-linkedin"></i>
-                  </Link>
-                  <Link to="https://github.com/italord0">
-                    <i className="fa-brands fa-github"></i>
-                  </Link>
-                  <Link to="https://x.com/olemolati">
-                    <i className="fa-brands fa-x-twitter"></i>
-                  </Link>
-                  <Link to="https://medium.com/@italord.melo">
-                    <i className="fa-brands fa-medium"></i>
-                  </Link>
+                    <a href="https://www.linkedin.com/in/italocmelo/">
+                      <i className="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Italord0">
+                      <i className="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://x.com/olemolati">
+                      <i className="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://medium.com/@italord.melo">
+                      <i className="fa-brands fa-medium"></i>
+                    </a>
                 </div>
               </div>
             </div>
@@ -54,7 +52,6 @@ const Header = () => {
           </div>
         </main>
       </div>
-    </Router>
   );
 };
 

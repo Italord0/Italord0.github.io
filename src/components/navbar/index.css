@@ -43,3 +43,8 @@ li {
 li:hover{
     color: red;
 }
+
+.active-link {
+    color: red; /* Color for active link */
+    /* Additional styling for active link if needed */
+  }

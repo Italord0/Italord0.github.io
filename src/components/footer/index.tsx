@@ -1,9 +1,9 @@
-import "../styles/footer.css"
+import "./index.css";
 const Footer = () => {
     return (
         <div className='footer-container'>
             <div className="footer-section">
-                <p>Copyright © 2023. All rights are reserved</p>
+                <p>Copyright © 2024. All rights are reserved</p>
             </div>
         </div>
     )

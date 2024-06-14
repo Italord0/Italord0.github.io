@@ -1,10 +1,8 @@
-import "../styles/projects.css";
-import { AllProjects } from "../data/projects";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import "./index.css";
+import { AllProjects } from "../../data/projects";
 
 const Projects = () => {
   return (
-    <Router>
       <div className="project-container" id="projects">
         <div className="project-section">
           <h2>Projects</h2>
@@ -40,18 +38,18 @@ const Projects = () => {
                     <p>{project.description}</p>
 
                     <div className="links">
-                      <Link to={project.gitHubUrl} target="_blank">
+                      <a href={project.gitHubUrl}>
                         <span>
                           Code<i className="fa-brands fa-github"></i>
                         </span>
-                      </Link>
-                      {project.prodUrl && ( // Render if project.prodUrl exists
-                        <Link to={project.prodUrl} target="_blank">
+                      </a>
+                      {project.prodUrl && (
+                        <a href={project.prodUrl}>
                           <span>
-                            Get on Store{" "}
+                            Get on Store
                             <i className="fa-brands fa-google-play"></i>
                           </span>
-                        </Link>
+                        </a>
                       )}
                     </div>
                   </div>
@@ -61,7 +59,6 @@ const Projects = () => {
           </div>
         </div>
       </div>
-    </Router>
   );
 };
 

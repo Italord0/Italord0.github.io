@@ -1,5 +1,5 @@
-import "../styles/about.css";
-import about from "../images/about.png";
+import "./index.css";
+import about from "../../images/about.png";
 const About = () => {
   return (
     <div id="about" className="about-container">
