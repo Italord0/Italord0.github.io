@@ -1,0 +1,14 @@
+.blog-header-container {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 10px 10px 10px;
+}
+
+.blog-header {
+    width: 100%;
+    text-align: center;
+    padding-top: 10rem;
+    font-size: 4rem;
+}
