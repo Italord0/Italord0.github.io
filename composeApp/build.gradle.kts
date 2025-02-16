@@ -88,8 +88,8 @@ tasks.register("generateDocs") {
     dependsOn("wasmJsBrowserDistribution")
 
     doLast {
-        val generatedFiles = file("composeApp/dist/wasmjs/productionExecutable")
-        val docsDir = file("docs")
+        val generatedFiles = file("build/dist/wasmJs/productionExecutable")
+        val docsDir = file("${project.rootDir}/docs")
 
         docsDir.mkdirs()
 
