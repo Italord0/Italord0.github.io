@@ -46,9 +46,16 @@ object Projects {
         Project(
             image = Res.drawable.remind_me,
             name = "Remind Me",
-            description = "Android Reminder App that uses Notification",
+            description = "Android app reminder that uses notifications",
             platforms = listOf(Platform.ANDROID),
             codeLink = "https://github.com/Italord0/remind-me"
+        ),
+        Project(
+            image = Res.drawable.compose,
+            name = "kMonitor",
+            description = "Desktop App made using Compose Multiplatform for displaying GPU and CPU temperatures and usage",
+            platforms = listOf(Platform.DESKTOP),
+            codeLink = "https://github.com/Italord0/kMonitor"
         ),
     )
 }

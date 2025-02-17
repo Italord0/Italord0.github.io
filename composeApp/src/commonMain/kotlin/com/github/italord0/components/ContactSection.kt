@@ -67,33 +67,5 @@ fun ContactSection() {
             }
         }
         Spacer(modifier = Modifier.height(32.dp))
-        Row {
-            Text(
-                text = "Made with ", style = TextStyle(
-                    fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
-                    fontSize = 14.sp
-                )
-            )
-            Image(
-                modifier = Modifier.size(18.dp),
-                painter = painterResource(Res.drawable.heart),
-                contentDescription = null
-            )
-            Text(
-                text = " using Compose Multiplatform", style = TextStyle(
-                    fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
-                    fontSize = 14.sp
-                )
-            )
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            text = "Copyright © 2025. All rights are reserved.", style = TextStyle(
-                fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
-                fontSize = 18.sp
-            ),
-            textAlign = TextAlign.Center
-        )
     }
 }
