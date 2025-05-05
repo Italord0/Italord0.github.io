@@ -21,7 +21,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil3.compose.AsyncImage
 import com.github.italord0.data.Platform
 import com.github.italord0.data.Project
 import home_page.composeapp.generated.resources.*
@@ -84,15 +83,44 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
                     fontSize = 18.sp
                 )
             )
-            var rowActive by remember { mutableStateOf(false) }
+            var codeActive by remember { mutableStateOf(false) }
+            var demoActive by remember { mutableStateOf(false) }
             val interactionSource = remember { MutableInteractionSource() }
+            project.prodLink?.let {
+                Row(
+                    modifier = Modifier.onPointerEvent(PointerEventType.Enter) {
+                        demoActive = true
+                    }.onPointerEvent(PointerEventType.Exit) { demoActive = false }.clickable(
+                        indication = null,
+                        interactionSource = interactionSource,
+                        onClick = { onClick(project.prodLink) }
+                    ).pointerHoverIcon(PointerIcon.Hand),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Demo", style = TextStyle(
+                            fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
+                            fontSize = 18.sp,
+                            color = if (demoActive) Color.Red else Color.Black
+                        )
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Image(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(Res.drawable.desktop),
+                        colorFilter = ColorFilter.tint(if (demoActive) Color.Red else Color.Black),
+                        contentDescription = null
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.onPointerEvent(PointerEventType.Enter) {
-                    rowActive = true
-                }.onPointerEvent(PointerEventType.Exit) { rowActive = false }.clickable(
+                    codeActive = true
+                }.onPointerEvent(PointerEventType.Exit) { codeActive = false }.clickable(
                     indication = null,
                     interactionSource = interactionSource,
-                    onClick = {onClick(project.codeLink)}
+                    onClick = { onClick(project.codeLink) }
                 ).pointerHoverIcon(PointerIcon.Hand),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -100,14 +128,14 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
                     text = "Code", style = TextStyle(
                         fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
                         fontSize = 18.sp,
-                        color = if (rowActive) Color.Red else Color.Black
+                        color = if (codeActive) Color.Red else Color.Black
                     )
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Image(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource(Res.drawable.github),
-                    colorFilter = ColorFilter.tint(if (rowActive) Color.Red else Color.Black),
+                    colorFilter = ColorFilter.tint(if (codeActive) Color.Red else Color.Black),
                     contentDescription = null
                 )
             }

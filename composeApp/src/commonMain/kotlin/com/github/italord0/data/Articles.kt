@@ -38,6 +38,13 @@ object Articles {
             description = "On this article, i will talk about the state of Compose Multiplatform for Web, and my experience building my new home page",
             link = "https://medium.com/@italord.melo/compose-multiplatform-for-web-my-experience-so-far-5b6b354e02d0",
             date = "Jan 6, 2025"
+        ),
+        Article(
+            image = Res.drawable.compose_inside_swift,
+            title = "Using Composables inside SwiftUI with Compose Multiplatform",
+            description = "Larn with the help of Kotlin/Native, make compose UI code compile into an XCFramework and integrated into iOS projects.",
+            link = "https://medium.com/@italord.melo/using-composables-inside-swiftui-using-compose-multiplatform-d82748e56b93",
+            date = "Apr 4, 2025"
         )
     )
 }

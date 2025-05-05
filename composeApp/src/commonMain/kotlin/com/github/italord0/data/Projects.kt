@@ -9,11 +9,12 @@ import home_page.composeapp.generated.resources.myweather
 object Projects {
     val data = listOf(
         Project(
-            image = Res.drawable.ip,
-            name = "What Is My IP?",
-            description = "Simple Android App to display IP address using web-scrapping",
-            platforms = listOf(Platform.ANDROID),
-            codeLink = "https://github.com/Italord0/ipconfig"
+            image = Res.drawable.exchange,
+            name = "Currency Converter",
+            description = "App made with Compose Multiplatform using fxratesapi",
+            platforms = listOf(Platform.ANDROID, Platform.IOS, Platform.DESKTOP),
+            codeLink = "https://italord0.github.io/currency-converter/",
+            prodLink = "https://italord0.github.io/currency-converter/"
         ),
         Project(
             image = Res.drawable.myweather,
@@ -46,16 +47,16 @@ object Projects {
         Project(
             image = Res.drawable.remind_me,
             name = "Remind Me",
-            description = "Android app reminder that uses notifications",
+            description = "Android App that reminds you with notifications",
             platforms = listOf(Platform.ANDROID),
             codeLink = "https://github.com/Italord0/remind-me"
         ),
         Project(
-            image = Res.drawable.compose,
-            name = "kMonitor",
-            description = "Desktop App made using Compose Multiplatform for displaying GPU and CPU temperatures and usage",
-            platforms = listOf(Platform.DESKTOP),
-            codeLink = "https://github.com/Italord0/kMonitor"
+            image = Res.drawable.ip,
+            name = "What Is My IP?",
+            description = "Simple Android App to display IP address using web-scrapping",
+            platforms = listOf(Platform.ANDROID),
+            codeLink = "https://github.com/Italord0/ipconfig"
         ),
     )
 }

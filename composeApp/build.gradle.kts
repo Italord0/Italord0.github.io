@@ -1,4 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.compose.reload.ComposeHotRun
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
 //import org.jetbrains.compose.reload.ComposeHotRun
 //import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -8,16 +10,17 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    //alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.composeHotReload)
 }
 
-//composeCompiler {
-//    featureFlags.add(ComposeFeatureFlag.OptimizeNonSkippingGroups)
-//}
-//
-//tasks.register<ComposeHotRun>("runHot"){
-//    mainClass.set("com.github.italord0.MainKt")
-//}
+composeCompiler {
+    featureFlags.add(ComposeFeatureFlag.OptimizeNonSkippingGroups)
+}
+
+tasks.register<ComposeHotRun>("runHot") {
+    group = "run"
+    mainClass.set("com.github.italord0.MainKt")
+}
 
 kotlin {
     jvm("desktop")
@@ -81,7 +84,7 @@ compose.desktop {
     }
 }
 
-tasks.register("generateDocs") {
+tasks.register("github") {
     group = "github pages"
     description = "Generate compose multiplatform executables and move files to the docs folder"
 
