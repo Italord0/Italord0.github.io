@@ -1,13 +1,15 @@
 package com.github.italord0.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,21 +27,18 @@ fun TopBar(
     Column {
         Row(
             modifier = Modifier.fillMaxWidth().padding(8.dp),
-            horizontalArrangement = Arrangement.End
+            horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.End)
         ) {
             items.forEach {
-                Text(
-                    modifier = Modifier
-                        .clickable { onRouteClicked(it) }
-                        .padding(8.dp),
+                LinkButton(
                     text = it,
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(resource = Res.font.spacemono_bold))
-                    ),
-                    fontSize = 24.sp
-                )
+                    textSize = 24.sp,
+                    fontFamily = FontFamily(Font(resource = Res.font.spacemono_bold))
+                ) {
+                    onRouteClicked(it)
+                }
             }
         }
-        Box(modifier = Modifier.fillMaxWidth().height(2.dp).background(Color.LightGray)) { }
+        Divider(modifier = Modifier.fillMaxWidth().height(1.dp))
     }
 }

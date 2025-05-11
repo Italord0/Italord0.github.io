@@ -13,8 +13,8 @@ object Projects {
             name = "Currency Converter",
             description = "App made with Compose Multiplatform using fxratesapi",
             platforms = listOf(Platform.ANDROID, Platform.IOS, Platform.DESKTOP),
-            codeLink = "https://italord0.github.io/currency-converter/",
-            prodLink = "https://italord0.github.io/currency-converter/"
+            codeLink = "https://github.com/OsMutantes/currency-converter",
+            webLink = "https://italord0.github.io/currency-converter/"
         ),
         Project(
             image = Res.drawable.myweather,

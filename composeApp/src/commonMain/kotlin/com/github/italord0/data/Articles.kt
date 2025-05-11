@@ -42,7 +42,7 @@ object Articles {
         Article(
             image = Res.drawable.compose_inside_swift,
             title = "Using Composables inside SwiftUI with Compose Multiplatform",
-            description = "Larn with the help of Kotlin/Native, make compose UI code compile into an XCFramework and integrated into iOS projects.",
+            description = "With the help of Kotlin/Native, make compose UI code compile into an XCFramework and integrated into iOS projects.",
             link = "https://medium.com/@italord.melo/using-composables-inside-swiftui-using-compose-multiplatform-d82748e56b93",
             date = "Apr 4, 2025"
         )

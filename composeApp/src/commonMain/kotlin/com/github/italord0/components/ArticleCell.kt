@@ -1,5 +1,7 @@
 package com.github.italord0.components
 
+import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -8,8 +10,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.layout.ContentScale
@@ -19,6 +25,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.italord0.data.Article
+import com.github.italord0.extension.onHover
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.spacemono_bold
 import home_page.composeapp.generated.resources.spacemono_regular
@@ -28,12 +35,20 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun ArticleCell(article: Article, onArticleClick: (String) -> Unit) {
     val interactionSource = remember { MutableInteractionSource() }
+    var hovered by remember { mutableStateOf(false) }
+    val scale by animateFloatAsState(targetValue = if (hovered) 1.1f else 1.0f, label = "scale")
+
     Card(
-        modifier = Modifier.width(350.dp).clickable(
-            indication = null,
-            interactionSource = interactionSource,
-            onClick = { onArticleClick(article.link) }
-        ).pointerHoverIcon(PointerIcon.Hand),
+        modifier = Modifier
+            .width(350.dp)
+            .scale(scale)
+            .clickable(
+                indication = null,
+                interactionSource = interactionSource,
+                onClick = { onArticleClick(article.link) }
+            )
+            .pointerHoverIcon(PointerIcon.Hand)
+            .onHover { hovered = it },
         shape = RoundedCornerShape(30.dp),
         elevation = 5.dp
     ) {
