@@ -75,19 +75,22 @@ kotlin {
             //compose navigation
             implementation(libs.compose.navigation)
 
-            implementation("io.coil-kt.coil3:coil-compose:3.0.4")
-            implementation("io.coil-kt.coil3:coil-network-ktor3:3.0.4")
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor3)
+            implementation("com.mikepenz:multiplatform-markdown-renderer-m2:0.35.0")
+            implementation("com.mikepenz:multiplatform-markdown-renderer-coil3:0.35.0")
+            implementation("com.mikepenz:multiplatform-markdown-renderer-code:0.35.0")
         }
         desktopMain.dependencies {
+            implementation(libs.ktor.client.java)
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.wasm)
+        }
     }
 }
-
-//dependencies {
-//    debugImplementation(compose.uiTooling)
-//}
 
 android {
     namespace = "com.github.italord0"

@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.italord0.components.ArticleCell
+import com.github.italord0.data.Article
 import com.github.italord0.data.Articles
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.spacemono_bold
@@ -18,7 +19,9 @@ import org.jetbrains.compose.resources.Font
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun BlogScreen() {
+fun BlogScreen(
+    onArticleClick: (article: Article) -> Unit = { }
+) {
     val uriHandler = LocalUriHandler.current
     Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
@@ -36,7 +39,10 @@ fun BlogScreen() {
             verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.CenterVertically)
         ) {
             Articles.data.reversed().forEach { article ->
-                ArticleCell(article) { uriHandler.openUri(it) }
+                ArticleCell(article) {
+                    //uriHandler.openUri(it)
+                    onArticleClick(article)
+                }
             }
         }
     }
