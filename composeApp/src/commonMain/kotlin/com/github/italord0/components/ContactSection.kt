@@ -21,6 +21,8 @@ import home_page.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 
+const val EMAIL_ADDRESS = "contact@italomelo.dev"
+
 @Composable
 fun ContactSection() {
     val uriHandler = LocalUriHandler.current
@@ -57,9 +59,9 @@ fun ContactSection() {
                     modifier = Modifier.clickable(
                         indication = null,
                         interactionSource = interactionSource,
-                        onClick = { uriHandler.openUri("mailto:italord.melo@gmail.com") }
+                        onClick = { uriHandler.openUri("mailto:$EMAIL_ADDRESS") }
                     ).pointerHoverIcon(PointerIcon.Hand),
-                    text = "italord.melo@gmail.com", style = TextStyle(
+                    text = EMAIL_ADDRESS, style = TextStyle(
                         fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
                         fontSize = 18.sp
                     )
