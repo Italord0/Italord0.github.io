@@ -49,12 +49,14 @@ fun App() {
                     BlogScreen {
                         selectedArticle =it
                         navController.navigate("Article")
+                        coroutineScope.launch {
+                            scrollState.animateScrollTo(0)
+                        }
                     }
                 }
 
                 composable(route = "Article") {
                     selectedArticle?.let {
-
                         ArticleScreen(selectedArticle)
                     }
                 }

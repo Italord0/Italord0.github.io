@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -44,14 +45,14 @@ fun ArticleScreen(
     )
 
     val markdownTypography = markdownTypography(
-        h1 = baseTextStyle.copy(fontSize = 28.sp),
-        h2 = baseTextStyle.copy(fontSize = 24.sp),
-        h3 = baseTextStyle.copy(fontSize = 20.sp),
-        h4 = baseTextStyle.copy(fontSize = 18.sp),
-        h5 = baseTextStyle.copy(fontSize = 16.sp),
-        h6 = baseTextStyle.copy(fontSize = 14.sp),
-        paragraph = baseTextStyle.copy(fontSize = 16.sp),
-        list = baseTextStyle.copy(fontSize = 14.sp),
+        h1 = MaterialTheme.typography.h1.copy(fontSize = 28.sp, lineHeight = 44.sp),
+        h2 = MaterialTheme.typography.h2.copy(fontSize = 24.sp),
+        h3 = MaterialTheme.typography.h3.copy(fontSize = 20.sp),
+        h4 = MaterialTheme.typography.h4.copy(fontSize = 18.sp),
+        h5 = MaterialTheme.typography.h5.copy(fontSize = 16.sp),
+        h6 = MaterialTheme.typography.h6.copy(fontSize = 14.sp),
+        paragraph = MaterialTheme.typography.body1.copy(fontSize = 16.sp),
+        list = MaterialTheme.typography.body1.copy(fontSize = 14.sp),
         code = TextStyle(
             fontFamily = FontFamily.Monospace
         ),
@@ -62,7 +63,7 @@ fun ArticleScreen(
 
 
     Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
+        modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

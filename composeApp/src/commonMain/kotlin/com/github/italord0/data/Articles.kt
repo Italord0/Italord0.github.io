@@ -26,7 +26,7 @@ object Articles {
             description = "Identify and manage memory leaks in Android development with expert techniques for robust app performance, stability, and enhanced user experience.",
             link = "https://medium.com/@italord.melo/leak-canary-find-and-handle-memory-leaks-on-android-development-25c24a3fb930",
             date = "Feb 14, 2024",
-            markdownFileString = "files/compose_web_my_experience.md"
+            markdownFileString = "files/leak_canary.md"
         ),
         Article(
             image = Res.drawable.chat,

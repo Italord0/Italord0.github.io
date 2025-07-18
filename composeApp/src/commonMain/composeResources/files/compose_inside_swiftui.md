@@ -25,13 +25,13 @@ In this guide, we’ll walk through how to:
 - Write a SwiftUI-compatible wrapper using `UIViewControllerRepresentable`
 - Use it in a SwiftUI project
 
-# Step 1: Setup Your `UI`  Compose Multiplatform Module
+# Step 1: Setup Your `UI` Compose Multiplatform Module
 
 First, create a Kotlin Multiplatform module with Compose support.
 
-`**build.gradle.kts**` **of the** `**ui**` **module:**
+`build.gradle.kts` of the `ui` module:
 
-```
+```groovy
 kotlin {
     androidTarget()
 
@@ -74,7 +74,7 @@ android {
 
 In this example a a file called `AwesomeComposable.kt`  is created inside `ui/commonMain` .
 
-```
+```kotlin
 package com.yourcompany.ui
 
 import androidx.compose.foundation.layout.*
@@ -93,7 +93,7 @@ fun AwesomeComposable() {
 
 Then create a simple `UIViewController`  to render this:
 
-```
+```kotlin
 package com.yourcompany.ui
 
 import androidx.compose.ui.window.ComposeUIViewController
@@ -104,22 +104,24 @@ fun AwesomeViewController() = ComposeUIViewController { AwesomeComposable() }
 # Step 3: Build the XCFramework
 
 From the root of your project, run:
+
 ```
 ./gradlew :ui:assembleXCFramework
 ```
 
 The output will be available under:
+
 ```
 ui/build/XCFrameworks/release/UI.xcframework
 ```
 
 # Step 4: Create a Swift Wrapper inside your SwiftUI Project
 
-Add `UI.xcframework`  to the "Frameworks, Libraries, and Embedded Content" section of your Swift project.
+Add `UI.xcframework` to the "Frameworks, Libraries, and Embedded Content" section of your Swift project.
 
 Now, let’s create a Swift wrapper:
 
-```
+```swift
 import SwiftUI
 //import your XCFramework module created by ComposeMultiplatform 
 import UI
@@ -141,7 +143,7 @@ public struct AwesomeComposableView: UIViewControllerRepresentable {
 
 Now you can use your `AwesomeComposableView`  inside any SwiftUI screen:
 
-```
+```swift
 import SwiftUI
 
 struct ContentView: View {
