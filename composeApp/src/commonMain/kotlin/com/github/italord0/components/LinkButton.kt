@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.italord0.extension.onHover
+import com.github.italord0.util.LocalAppTheme
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.github
 import home_page.composeapp.generated.resources.spacemono_regular
@@ -45,7 +46,7 @@ fun LinkButton(
 ) {
     var isHovered by remember { mutableStateOf(false) }
     val interactionSource = remember { MutableInteractionSource() }
-
+    val theme = LocalAppTheme.current
     Row(
         modifier = Modifier
             .clickable(
@@ -61,7 +62,7 @@ fun LinkButton(
             text = text, style = TextStyle(
                 fontFamily = fontFamily,
                 fontSize = textSize,
-                color = if (isHovered) Color.Red else Color.Black
+                color = if (isHovered) theme.colors.primary else theme.colors.text
             )
         )
         icon?.let {
@@ -71,7 +72,7 @@ fun LinkButton(
             Image(
                 modifier = Modifier.size(iconSize),
                 painter = painterResource(it),
-                colorFilter = ColorFilter.tint(if (isHovered) Color.Red else Color.Black),
+                colorFilter = ColorFilter.tint(if (isHovered) theme.colors.primary else theme.colors.text),
                 contentDescription = null
             )
         }

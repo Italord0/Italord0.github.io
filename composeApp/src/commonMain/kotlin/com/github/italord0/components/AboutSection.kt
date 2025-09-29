@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,6 +14,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.github.italord0.util.LocalAppTheme
 import home_page.composeapp.generated.resources.*
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.spacemono_bold
@@ -23,6 +25,7 @@ import org.jetbrains.compose.resources.painterResource
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AboutSection() {
+    val theme = LocalAppTheme.current
     FlowRow(
         Modifier.fillMaxWidth().padding(horizontal = 32.dp),
         horizontalArrangement = Arrangement.Center,
@@ -35,22 +38,26 @@ fun AboutSection() {
             contentDescription = null
         )
         Spacer(modifier = Modifier.width(32.dp))
+        SelectionContainer {
         Column(Modifier.width(800.dp)) {
-            Text(
-                text = "About me", style = TextStyle(
-                    fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
-                    fontSize = 20.sp
+                Text(
+                    text = "About me", style = TextStyle(
+                        fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
+                        fontSize = 20.sp,
+                        color = theme.colors.text
+                    )
                 )
-            )
-            Text(
-                text = "As a Mobile Developer, I possess an arsenal of skills in Android, iOS, Compose Multiplatform and some React Native.\n" +
-                        "\n" +
-                        "My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques.\n",
-                style = TextStyle(
-                    fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
-                    fontSize = 18.sp
+                Text(
+                    text = "As a Mobile Developer, i have an arsenal of skills in Android, iOS, Compose Multiplatform and some React Native.\n" +
+                            "\n" +
+                            "My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques.\n",
+                    style = TextStyle(
+                        fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
+                        fontSize = 18.sp,
+                        color = theme.colors.text
+                    )
                 )
-            )
+            }
         }
     }
 }
