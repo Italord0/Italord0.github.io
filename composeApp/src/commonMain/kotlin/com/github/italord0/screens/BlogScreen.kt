@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.italord0.components.ArticleCell
 import com.github.italord0.data.Articles
+import com.github.italord0.util.LocalAppTheme
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.spacemono_bold
 import org.jetbrains.compose.resources.Font
@@ -20,6 +21,7 @@ import org.jetbrains.compose.resources.Font
 @Composable
 fun BlogScreen() {
     val uriHandler = LocalUriHandler.current
+    val theme = LocalAppTheme.current
     Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             modifier = Modifier
@@ -27,7 +29,8 @@ fun BlogScreen() {
             text = "Check out my latest articles!",
             style = TextStyle(
                 fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
-                fontSize = 32.sp
+                fontSize = 32.sp,
+                color = theme.colors.text
             )
         )
         FlowRow(

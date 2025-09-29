@@ -1,6 +1,7 @@
 package com.github.italord0.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -32,5 +33,7 @@ fun HomeScreen() {
 @Preview
 @Composable
 fun AboutSectionPreview() {
-    HeaderSection()
+    Surface {
+        HeaderSection()
+    }
 }

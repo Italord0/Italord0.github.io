@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,13 +21,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.italord0.data.Platform
 import com.github.italord0.data.Project
+import com.github.italord0.util.LocalAppTheme
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.android
 import home_page.composeapp.generated.resources.apple
@@ -42,10 +46,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ProjectCell(project: Project, onClick: (String) -> Unit) {
+    val theme = LocalAppTheme.current
     Card(
         modifier = Modifier.width(350.dp).height(450.dp),
+        elevation = 15.dp,
         shape = RoundedCornerShape(60.dp),
-        elevation = 15.dp
+        backgroundColor = theme.colors.background
     ) {
         Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
@@ -56,7 +62,8 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
             Text(
                 text = project.name, style = TextStyle(
                     fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    color = theme.colors.text
                 )
             )
             Spacer(modifier = Modifier.height(16.dp))
@@ -65,32 +72,38 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
                     Image(
                         modifier = Modifier.size(32.dp),
                         painter = painterResource(Res.drawable.android),
-                        contentDescription = null
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(color = theme.colors.text)
                     )
                 }
                 if (project.platforms.contains(Platform.IOS)) {
                     Image(
                         modifier = Modifier.size(32.dp),
                         painter = painterResource(Res.drawable.apple),
-                        contentDescription = null
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(color = theme.colors.text)
                     )
                 }
                 if (project.platforms.contains(Platform.DESKTOP)) {
                     Image(
                         modifier = Modifier.size(32.dp),
                         painter = painterResource(Res.drawable.desktop),
-                        contentDescription = null
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(color = theme.colors.text)
                     )
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                modifier = Modifier.height(160.dp).padding(16.dp),
-                text = project.description, style = TextStyle(
-                    fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
-                    fontSize = 18.sp
+            SelectionContainer {
+                Text(
+                    modifier = Modifier.height(160.dp).padding(16.dp),
+                    text = project.description, style = TextStyle(
+                        fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
+                        fontSize = 18.sp,
+                        color = theme.colors.text
+                    )
                 )
-            )
+            }
             project.webLink?.let {
                 LinkButton(icon = Res.drawable.desktop, text = "Demo") {
                     onClick(project.webLink)

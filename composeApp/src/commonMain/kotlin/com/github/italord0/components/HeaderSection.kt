@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -19,12 +20,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.github.italord0.util.LocalAppTheme
 import home_page.composeapp.generated.resources.Res
 import home_page.composeapp.generated.resources.github
 import home_page.composeapp.generated.resources.java
@@ -46,6 +49,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun HeaderSection() {
     val uriHandler = LocalUriHandler.current
+    val theme = LocalAppTheme.current
     Column {
         FlowRow(
             horizontalArrangement = Arrangement.Center,
@@ -53,20 +57,26 @@ fun HeaderSection() {
             modifier = Modifier.fillMaxWidth()
         ) {
             Column {
-                Text(
-                    text = "Italo Melo",
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
-                        fontSize = 32.sp
-                    )
-                )
-                Text(
-                    text = "Hi! I'm a Mobile Developer \nbased in Recife, Brazil.",
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
-                        fontSize = 20.sp
-                    )
-                )
+                SelectionContainer {
+                    Column {
+                        Text(
+                            text = "Italo Melo",
+                            style = TextStyle(
+                                fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
+                                fontSize = 32.sp,
+                                color = theme.colors.text
+                            )
+                        )
+                        Text(
+                            text = "Hi! I'm a Mobile Developer \nbased in Recife, Brazil.",
+                            style = TextStyle(
+                                fontFamily = FontFamily(Font(Res.font.spacemono_regular)),
+                                fontSize = 20.sp,
+                                color = theme.colors.text
+                            )
+                        )
+                    }
+                }
                 Spacer(modifier = Modifier.height(16.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                     val links: List<Pair<DrawableResource, String>> = listOf(
@@ -107,7 +117,8 @@ fun HeaderSection() {
                 textAlign = TextAlign.Center,
                 text = "Tech Stack", style = TextStyle(
                     fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
-                    fontSize = 20.sp
+                    fontSize = 20.sp,
+                    color = theme.colors.text
                 )
             )
             val stacks = listOf(
@@ -126,7 +137,8 @@ fun HeaderSection() {
                     Image(
                         modifier = Modifier.size(48.dp),
                         painter = painterResource(it),
-                        contentDescription = null
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(color = theme.colors.text)
                     )
                 }
             }
