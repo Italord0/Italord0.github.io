@@ -21,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -37,6 +38,7 @@ import home_page.composeapp.generated.resources.apple
 import home_page.composeapp.generated.resources.desktop
 import home_page.composeapp.generated.resources.flappy
 import home_page.composeapp.generated.resources.github
+import home_page.composeapp.generated.resources.play_store
 import home_page.composeapp.generated.resources.spacemono_bold
 import home_page.composeapp.generated.resources.spacemono_regular
 import org.jetbrains.compose.resources.Font
@@ -51,14 +53,15 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
         modifier = Modifier.width(350.dp).height(450.dp),
         elevation = 15.dp,
         shape = RoundedCornerShape(60.dp),
-        backgroundColor = theme.colors.background
+        backgroundColor = theme.colors.onBackground
     ) {
         Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
                 contentDescription = null,
-                modifier = Modifier.size(100.dp),
+                modifier = Modifier.size(100.dp).clip(RoundedCornerShape(10.dp)),
                 painter = painterResource(project.image)
             )
+            Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = project.name, style = TextStyle(
                     fontFamily = FontFamily(Font(Res.font.spacemono_bold)),
@@ -110,9 +113,16 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
                 }
                 Spacer(modifier = Modifier.height(8.dp))
             }
-            LinkButton(icon = Res.drawable.github, text = "Code") { onClick(project.codeLink) }
-            Spacer(modifier = Modifier.height(8.dp))
-
+            project.playstoreLink?.let {
+                LinkButton(icon = Res.drawable.play_store, text = "Get on") {
+                    onClick(project.playstoreLink)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            project.codeLink?.let {
+                LinkButton(icon = Res.drawable.github, text = "Code") { onClick(project.codeLink) }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
         }
     }
 }

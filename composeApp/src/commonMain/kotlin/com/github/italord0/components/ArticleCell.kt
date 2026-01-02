@@ -56,10 +56,10 @@ fun ArticleCell(article: Article, onArticleClick: (String) -> Unit) {
             .pointerHoverIcon(PointerIcon.Hand)
             .onHover { hovered = it },
         shape = RoundedCornerShape(30.dp),
-        backgroundColor = theme.colors.background,
+        backgroundColor = theme.colors.onBackground,
         elevation = 5.dp
     ) {
-        Column(modifier = Modifier.background(color = theme.colors.background)) {
+        Column(modifier = Modifier.background(color = theme.colors.onBackground)) {
             Image(
                 modifier = Modifier.fillMaxWidth().height(150.dp),
                 contentDescription = null,

@@ -7,8 +7,9 @@ data class Project(
     val name: String,
     val description: String,
     val platforms: List<Platform>,
-    val codeLink: String,
-    val webLink: String? = null
+    val codeLink: String? = null,
+    val webLink: String? = null,
+    val playstoreLink: String? = null,
 )
 
 enum class Platform {

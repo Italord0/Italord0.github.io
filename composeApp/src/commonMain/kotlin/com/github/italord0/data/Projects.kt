@@ -9,6 +9,12 @@ import home_page.composeapp.generated.resources.myweather
 object Projects {
     val data = listOf(
         Project(
+            image = Res.drawable.ra_tracker,
+            name = "RA Tracker",
+            description = "Retroachievements Mobile tracker",
+            platforms = listOf(Platform.ANDROID),
+            playstoreLink = "https://play.google.com/store/apps/details?id=dev.italomelo.retroachievements",
+        ),Project(
             image = Res.drawable.exchange,
             name = "Currency Converter",
             description = "App made with Compose Multiplatform using fxratesapi",

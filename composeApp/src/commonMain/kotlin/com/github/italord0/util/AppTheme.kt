@@ -59,14 +59,14 @@ data class AppColors(
 val lightColors = AppColors(
     primary = Color.Red,
     background = Color.White,
-    onBackground = Color.LightGray,
+    onBackground = Color(0xFFDDDDDD),
     text = Color.Black
 )
 
 val darkColors = AppColors(
     primary = Color.Red,
-    background = Color.DarkGray,
-    onBackground = Color.Gray,
+    background = Color(0xFF222222),
+    onBackground = Color.DarkGray,
     text = Color.White
 )
 
