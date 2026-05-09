@@ -39,6 +39,7 @@ import home_page.composeapp.generated.resources.desktop
 import home_page.composeapp.generated.resources.flappy
 import home_page.composeapp.generated.resources.github
 import home_page.composeapp.generated.resources.play_store
+import home_page.composeapp.generated.resources.ra_tracker
 import home_page.composeapp.generated.resources.spacemono_bold
 import home_page.composeapp.generated.resources.spacemono_regular
 import org.jetbrains.compose.resources.Font
@@ -58,7 +59,7 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
         Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
                 contentDescription = null,
-                modifier = Modifier.size(100.dp).clip(RoundedCornerShape(10.dp)),
+                modifier = Modifier.size(100.dp).clip(RoundedCornerShape(20.dp)),
                 painter = painterResource(project.image)
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -119,6 +120,12 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
                 }
                 Spacer(modifier = Modifier.height(8.dp))
             }
+            project.appstoreLink?.let {
+                LinkButton(icon = Res.drawable.apple, text = "Get on") {
+                    onClick(project.appstoreLink)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
             project.codeLink?.let {
                 LinkButton(icon = Res.drawable.github, text = "Code") { onClick(project.codeLink) }
                 Spacer(modifier = Modifier.height(8.dp))
@@ -132,15 +139,14 @@ fun ProjectCell(project: Project, onClick: (String) -> Unit) {
 fun ProjectCellPreview() {
     ProjectCell(
         Project(
-            image = Res.drawable.flappy,
-            "Flappy Clone",
-            "A clone of the popular game Flappy Bird using LibGDX game framework",
-            listOf(
-                Platform.ANDROID,
-                Platform.DESKTOP
-            ),
-            "",
-            webLink = ""
+            image = Res.drawable.ra_tracker,
+            name = "RA Tracker",
+            description = "Retroachievements Mobile tracker",
+            platforms = listOf(Platform.ANDROID, Platform.IOS),
+            playstoreLink = "https://play.google.com/store/apps/details?id=dev.italomelo.retroachievements",
+            appstoreLink = "https://apps.apple.com/app/retroachievements-tracker/id6759007347"
         )
-    ) {}
+    ) {
+
+    }
 }

@@ -10,6 +10,7 @@ data class Project(
     val codeLink: String? = null,
     val webLink: String? = null,
     val playstoreLink: String? = null,
+    val appstoreLink: String? = null
 )
 
 enum class Platform {
