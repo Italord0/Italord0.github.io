@@ -12,8 +12,9 @@ object Projects {
             image = Res.drawable.ra_tracker,
             name = "RA Tracker",
             description = "Retroachievements Mobile tracker",
-            platforms = listOf(Platform.ANDROID),
+            platforms = listOf(Platform.ANDROID, Platform.IOS),
             playstoreLink = "https://play.google.com/store/apps/details?id=dev.italomelo.retroachievements",
+            appstoreLink = "https://apps.apple.com/app/retroachievements-tracker/id6759007347"
         ),Project(
             image = Res.drawable.exchange,
             name = "Currency Converter",

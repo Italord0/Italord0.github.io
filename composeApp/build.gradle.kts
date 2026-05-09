@@ -132,11 +132,20 @@ compose.desktop {
     }
 }
 
+val addDocsToGit by tasks.registering(Exec::class) {
+    workingDir = project.rootDir
+
+    environment("DEVELOPER_DIR", "/Library/Developer/CommandLineTools")
+
+    commandLine("git", "add", "docs")
+}
+
 tasks.register("github") {
     group = "github pages"
     description = "Generate compose multiplatform executables and move files to the docs folder"
 
     dependsOn("wasmJsBrowserDistribution")
+    finalizedBy(addDocsToGit)
 
     doLast {
         val generatedFiles = file("build/dist/wasmJs/productionExecutable")
@@ -147,11 +156,6 @@ tasks.register("github") {
         copy {
             from(generatedFiles)
             into(docsDir)
-        }
-
-        exec {
-            workingDir = project.rootDir
-            commandLine("git","add","docs")
         }
 
         println("Production executable files copied to ${docsDir.absolutePath}")
